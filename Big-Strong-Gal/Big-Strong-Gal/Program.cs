@@ -1,8 +1,10 @@
 ﻿using Discord;
 using Discord.Commands;
 using Discord.WebSocket;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using System;
+using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Text;
@@ -12,21 +14,18 @@ namespace BigStrongGal
 {
     class Program
     {
-        //[TODO] Make this secure
-        private static string APP_TOKEN = "OTU3MTI1NTg0OTYwNDg3NDU0.GcbjB2.0SBdh8jkaDBBDSfmsAWpVqPeCGPqXw9QWOE0go";
-        private static ulong APP_GUILD_ID = 957125584960487454;
-
         private DiscordSocketClient mClient;
         private CommandService mCommands;
         private IServiceProvider mServices;
+        private IConfigurationRoot mConfiguration { get; set; }
 
         static void Main(string[] args) => new Program().RunBotAsync().GetAwaiter().GetResult();
 
         public async Task RunBotAsync()
         {
+            string token = Environment.GetEnvironmentVariable("BIG_STRONG_GAL_TOKEN");
             mClient = new DiscordSocketClient();
             mCommands = new CommandService();
-
             mServices = new ServiceCollection()
                 .AddSingleton(mClient)
                 .AddSingleton(mCommands)
@@ -34,10 +33,11 @@ namespace BigStrongGal
 
             mClient.Log += clientLog;
 
-            mClient.UserVoiceStateUpdated += (user, before, after) => {
+            mClient.UserVoiceStateUpdated += (user, before, after) =>
+            {
                 ulong general_channelID = 690459268742119438; //[TODO] don't make this hard coded
                 IMessageChannel chnl = mClient.GetChannel(general_channelID) as IMessageChannel;
-                string message = $"{user} - {before.VoiceChannel?.Name ?? "null"} -> {after.VoiceChannel?.Name ?? "null"}";
+                string message = "";
                 if (before.VoiceChannel != null && after.VoiceChannel == null)
                 {
                     message = $"{user} has left {before.VoiceChannel.Name}";
@@ -46,12 +46,18 @@ namespace BigStrongGal
                 {
                     message = $"{user} has entered {after.VoiceChannel.Name}";
                 }
+                else
+                {
+                    message = $"{user} - {before.VoiceChannel?.Name ?? "null"} -> {after.VoiceChannel?.Name ?? "null"}";
+                }
+
+                //[TODO] This is the part where we send the message to telegram
                 chnl.SendMessageAsync(message);
                 return Task.CompletedTask;
             };
 
             await RegisterCommandsAsync();
-            await mClient.LoginAsync(TokenType.Bot, APP_TOKEN);
+            await mClient.LoginAsync(TokenType.Bot, token);
             await mClient.StartAsync();
             await Task.Delay(-1);
         }
@@ -78,7 +84,7 @@ namespace BigStrongGal
             }
 
             int argPos = 0;
-            if(message.HasStringPrefix("!", ref argPos))
+            if (message.HasStringPrefix("!", ref argPos))
             {
                 var result = await mCommands.ExecuteAsync(context, argPos, mServices);
                 if (!result.IsSuccess)

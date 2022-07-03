@@ -26,3 +26,14 @@ D:\Work and Other Documents\Projects\lac-bilbo\Big-Strong-Gal\Big-Strong-Gal\obj
 D:\Work and Other Documents\Projects\lac-bilbo\Big-Strong-Gal\Big-Strong-Gal\obj\Debug\net6.0\Big-Strong-Gal.pdb
 D:\Work and Other Documents\Projects\lac-bilbo\Big-Strong-Gal\Big-Strong-Gal\obj\Debug\net6.0\Big-Strong-Gal.genruntimeconfig.cache
 D:\Work and Other Documents\Projects\lac-bilbo\Big-Strong-Gal\Big-Strong-Gal\obj\Debug\net6.0\ref\Big-Strong-Gal.dll
+D:\Work and Other Documents\Projects\lac-bilbo\Big-Strong-Gal\Big-Strong-Gal\bin\Debug\net6.0\Microsoft.Extensions.Configuration.dll
+D:\Work and Other Documents\Projects\lac-bilbo\Big-Strong-Gal\Big-Strong-Gal\bin\Debug\net6.0\Microsoft.Extensions.Configuration.Abstractions.dll
+D:\Work and Other Documents\Projects\lac-bilbo\Big-Strong-Gal\Big-Strong-Gal\bin\Debug\net6.0\Microsoft.Extensions.Primitives.dll
+D:\Work and Other Documents\Projects\lac-bilbo\Big-Strong-Gal\Big-Strong-Gal\bin\Debug\net6.0\DotNetEnv.dll
+D:\Work and Other Documents\Projects\lac-bilbo\Big-Strong-Gal\Big-Strong-Gal\bin\Debug\net6.0\Sprache.dll
+D:\Work and Other Documents\Projects\lac-bilbo\Big-Strong-Gal\Big-Strong-Gal\bin\Debug\net6.0\Microsoft.Extensions.Configuration.FileExtensions.dll
+D:\Work and Other Documents\Projects\lac-bilbo\Big-Strong-Gal\Big-Strong-Gal\bin\Debug\net6.0\Microsoft.Extensions.Configuration.Json.dll
+D:\Work and Other Documents\Projects\lac-bilbo\Big-Strong-Gal\Big-Strong-Gal\bin\Debug\net6.0\Microsoft.Extensions.FileProviders.Abstractions.dll
+D:\Work and Other Documents\Projects\lac-bilbo\Big-Strong-Gal\Big-Strong-Gal\bin\Debug\net6.0\Microsoft.Extensions.FileProviders.Physical.dll
+D:\Work and Other Documents\Projects\lac-bilbo\Big-Strong-Gal\Big-Strong-Gal\bin\Debug\net6.0\Microsoft.Extensions.FileSystemGlobbing.dll
+D:\Work and Other Documents\Projects\lac-bilbo\Big-Strong-Gal\Big-Strong-Gal\bin\Debug\net6.0\Microsoft.Extensions.Configuration.EnvironmentVariables.dll
