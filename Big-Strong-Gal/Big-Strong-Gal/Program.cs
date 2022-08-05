@@ -37,8 +37,17 @@ namespace BigStrongGal
             {
                 ulong general_channelID = 690459268742119438; //[TODO] don't make this hard coded
                 IMessageChannel chnl = mClient.GetChannel(general_channelID) as IMessageChannel;
+                if(chnl == null)
+                {
+                    return Task.CompletedTask;
+                }
+
                 string message = "";
-                if (before.VoiceChannel != null && after.VoiceChannel == null)
+                if(before.VoiceChannel == after.VoiceChannel)
+                {
+                    return Task.CompletedTask;
+                }
+                else if (before.VoiceChannel != null && after.VoiceChannel == null)
                 {
                     message = $"{user} has left {before.VoiceChannel.Name}";
                 }
